@@ -1,7 +1,6 @@
 package com.bridgelabz;
 
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -50,6 +49,16 @@ public class ParkingLotTest {
         } catch (ParkingLotException e) {
                 e.printStackTrace();
             }
+        }
+
+    @Test
+    public void givenAQuery_WhenParkingLotIsFull_ShouldReturnTrue() {
+        try {
+            parkingLotSystem.park(vehicle);
+            boolean isFull = parkingLotSystem.isLotFull(vehicle);
+        } catch (ParkingLotException e) {
+            Assertions.assertEquals("Parking Lot is Full", e.getMessage());
+            e.printStackTrace();
         }
     }
 }
